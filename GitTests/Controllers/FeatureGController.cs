@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace GitTests.Controllers
 {
+    //TODO: quero ver o oco
     [ApiController]
     [Route("[controller]")]
     public class FeatureGController : ControllerBase
@@ -18,8 +19,8 @@ namespace GitTests.Controllers
             _logger = logger;
         }
 
-        [HttpGet(Name = "GetFeatureG")]
-        public IEnumerable<WeatherForecast> Get()
+        [HttpPost(Name = "PostFeatureG")]
+        public IEnumerable<WeatherForecast> Post()
         {
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
