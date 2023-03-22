@@ -22,6 +22,7 @@ namespace GitTests.Controllers
         public IEnumerable<WeatherForecast> Get()
         {
             var summary = Summaries[Random.Shared.Next(Summaries.Length)];
+            //TODO quero ver o q chega em prod
             var date = DateTime.Now.AddDays(index);
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
