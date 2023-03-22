@@ -22,7 +22,7 @@ namespace GitTests.Controllers
         public IEnumerable<WeatherForecast> Get()
         {
             var summary = Summaries[Random.Shared.Next(Summaries.Length)];
-   
+   //TODO Imagine que houve uma grande implementação aqui de 40 linhas
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
                 Date = DateTime.Now.AddDays(index),
