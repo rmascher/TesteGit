@@ -4,30 +4,28 @@ namespace GitTests.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class FeatureAController : ControllerBase
+    public class FeatureFController : ControllerBase
     {
         private static readonly string[] Summaries = new[]
         {
-         "Bracing",  "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "FeatureE", "FeatureD"
+        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
     };
 
-        private readonly ILogger<FeatureAController> _logger;
+        private readonly ILogger<FeatureFController> _logger;
 
-        public FeatureAController(ILogger<FeatureAController> logger)
+        public FeatureFController(ILogger<FeatureFController> logger)
         {
             _logger = logger;
         }
 
-        [HttpGet(Name = "GetFeatureA")]
+        [HttpGet(Name = "GetFeatureF")]
         public IEnumerable<WeatherForecast> Get()
         {
-            var summary = Summaries[Random.Shared.Next(Summaries.Length)];
-            var date = DateTime.Now.AddDays(index);
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
-                Date = date,
+                Date = DateTime.Now.AddDays(index),
                 TemperatureC = Random.Shared.Next(-20, 55),
-                Summary = summary
+                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
             })
             .ToArray();
         }
