@@ -22,10 +22,23 @@ namespace GitTests.Controllers
         public IEnumerable<WeatherForecast> Get()
         {
             var summary = Summaries[Random.Shared.Next(Summaries.Length)];
-            var date = DateTime.Now.AddDays(index);
+   
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
-                Date = date,
+                Date = DateTime.Now.AddDays(index),
+                TemperatureC = Random.Shared.Next(-20, 55),
+                Summary = summary
+            })
+            .ToArray();
+        }
+        [HttpPost(Name = "PostFeatureA")]
+        public IEnumerable<WeatherForecast> Post()
+        {
+            var summary = Summaries[Random.Shared.Next(Summaries.Length)];
+   
+            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
+            {
+                Date = DateTime.Now.AddDays(index),
                 TemperatureC = Random.Shared.Next(-20, 55),
                 Summary = summary
             })
