@@ -18,8 +18,8 @@ namespace GitTests.Controllers
             _logger = logger;
         }
 
-        [HttpGet(Name = "GetFeatureB")]
-        public IEnumerable<WeatherForecast> Get()
+        [HttpPost(Name = "PostFeatureB")]
+        public IEnumerable<WeatherForecast> Post()
         {
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
