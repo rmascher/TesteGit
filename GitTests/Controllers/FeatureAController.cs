@@ -8,7 +8,7 @@ namespace GitTests.Controllers
     {
         private static readonly string[] Summaries = new[]
         {
-         "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "FeatureE"
+         "Bracing",  "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "FeatureE", "FeatureD"
     };
 
         private readonly ILogger<FeatureAController> _logger;
@@ -22,9 +22,10 @@ namespace GitTests.Controllers
         public IEnumerable<WeatherForecast> Get()
         {
             var summary = Summaries[Random.Shared.Next(Summaries.Length)];
+            var date = DateTime.Now.AddDays(index);
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
-                Date = DateTime.Now.AddDays(index),
+                Date = date,
                 TemperatureC = Random.Shared.Next(-20, 55),
                 Summary = summary
             })
